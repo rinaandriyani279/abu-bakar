@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Belajar PAI: Abu Bakar Ash-Shiddiq r.a.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Poppins & Fredoka) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFD166',
+                        brandGreen: '#06D6A0',
+                        brandBlue: '#118AB2',
+                        brandPink: '#EF476F',
+                        brandPurple: '#8338EC',
+                        brandOrange: '#F77F00'
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%);
+            min-height: 100vh;
+        }
+        h1, h2, h3, .font-fun {
+            font-family: 'Fredoka', cursive;
+        }
+        .card-bounce {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-bounce:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .rainbow-border {
+            border-image: linear-gradient(to right, #EF476F, #F77F00, #FFD166, #06D6A0, #118AB2, #8338EC) 1;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06D6A0;
+            border-radius: 10px;
+        }
+        .star-anim {
+            animation: pulseStar 1.5s infinite alternate;
+        }
+        @keyframes pulseStar {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-12 select-none">
+
+    <!-- Navigation / Header Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b-4 border-brandYellow shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-tr from-brandPink to-brandYellow p-3 rounded-2xl shadow-md text-white text-2xl">
+                    <i class="fa-solid fa-star-and-crescent animate-spin-slow"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold text-slate-800 leading-none">PAI Ceria Kelas 6</h1>
+                    <p class="text-xs text-brandBlue font-semibold">Mengenal Sahabat Abu Bakar Ash-Shiddiq r.a.</p>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <nav class="flex gap-2 mt-2 sm:mt-0 overflow-x-auto py-1">
+                <button onclick="switchTab('beranda')" id="nav-beranda" class="nav-btn bg-brandYellow text-slate-900 font-bold px-4 py-2 rounded-xl text-sm md:text-base flex items-center gap-2 shadow transition-all hover:bg-amber-300">
+                    <i class="fa-solid fa-house"></i> Beranda
+                </button>
+                <button onclick="switchTab('materi')" id="nav-materi" class="nav-btn bg-white text-slate-700 font-bold px-4 py-2 rounded-xl text-sm md:text-base flex items-center gap-2 shadow hover:bg-teal-50 transition-all">
+                    <i class="fa-solid fa-book-open text-brandGreen"></i> Materi
+                </button>
+                <button onclick="switchTab('langkah')" id="nav-langkah" class="nav-btn bg-white text-slate-700 font-bold px-4 py-2 rounded-xl text-sm md:text-base flex items-center gap-2 shadow hover:bg-purple-50 transition-all">
+                    <i class="fa-solid fa-shoe-prints text-brandPurple"></i> Langkah Belajar
+                </button>
+                <button onclick="switchTab('kuis')" id="nav-kuis" class="nav-btn bg-white text-slate-700 font-bold px-4 py-2 rounded-xl text-sm md:text-base flex items-center gap-2 shadow hover:bg-rose-50 transition-all">
+                    <i class="fa-solid fa-gamepad text-brandPink"></i> Kuis 20 Soal
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 mt-6">
+
+        <!-- SECTION 1: BERANDA -->
+        <section id="sec-beranda" class="tab-content block">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-brandBlue via-brandPurple to-brandPink rounded-3xl p-6 md:p-10 text-white shadow-2xl relative overflow-hidden mb-8">
+                <div class="absolute -right-10 -bottom-10 opacity-20 text-9xl">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-brandYellow text-slate-900 font-bold text-xs md:text-sm px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">
+                        ✨ Materi PAI Kelas 6 SD
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                        Mari Mengenal Khulafaur Rasyidin Pertama: <br/>
+                        <span class="text-brandYellow">Abu Bakar Ash-Shiddiq r.a.</span>
+                    </h2>
+                    <p class="text-base md:text-lg mb-6 text-slate-100">
+                        Sahabat nabi yang paling jujur, dermawan, setia, dan pemberani. Yuk, jelajahi materi interaktif, ikuti langkah kepemimpinannya, dan uji kemahiranmu di kuis interaktif!
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="switchTab('materi')" class="bg-brandGreen hover:bg-emerald-400 text-slate-900 font-bold px-6 py-3 rounded-2xl shadow-lg transition-all transform hover:scale-105 flex items-center gap-2">
+                            <i class="fa-solid fa-rocket"></i> Mulai Petualangan
+                        </button>
+                        <button onclick="switchTab('kuis')" class="bg-white/20 hover:bg-white/30 text-white font-bold px-6 py-3 rounded-2xl backdrop-blur-sm shadow transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-trophy text-brandYellow"></i> Langsung Kuis
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Character & Core Attributes -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Visual Representation Card -->
+                <div class="bg-white rounded-3xl p-6 shadow-xl border-4 border-brandYellow text-center relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-brandPink via-brandGreen to-brandPurple"></div>
+                    <div>
+                        <span class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Simbol Keteladanan</span>
+                        <h3 class="text-2xl font-bold mt-2 text-slate-800">Visual Kepribadian</h3>
+                        <p class="text-xs text-slate-500 mb-4">Imajinasi Sifat Mulia Abu Bakar r.a.</p>
+                        
+                        <!-- Illustration Frame -->
+                        <div class="my-4 bg-gradient-to-b from-amber-50 to-orange-100 rounded-2xl p-6 border-2 border-dashed border-brandOrange flex flex-col items-center justify-center relative">
+                            <!-- SVG Character Icon -->
+                            <div class="w-32 h-32 rounded-full bg-white shadow-inner flex items-center justify-center text-6xl text-amber-600 mb-3 border-4 border-brandYellow relative">
+                                <i class="fa-solid fa-user-shield"></i>
+                                <div class="absolute -top-2 -right-2 bg-brandPink text-white text-xs p-2 rounded-full shadow star-anim">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-slate-800">"Ash-Shiddiq"</h4>
+                            <p class="text-xs text-slate-600 italic">"Orang yang Selalu Membenarkan Kebenaran Rasulullah SAW"</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-50 p-3 rounded-xl border border-teal-200 text-left text-xs space-y-1">
+                        <p class="font-bold text-teal-800"><i class="fa-solid fa-check-circle text-brandGreen"></i> Sifat Utama:</p>
+                        <p class="text-slate-700">• Sangat Jujur & Lembut Hati</p>
+                        <p class="text-slate-700">• Dermawan (Suka Membebaskan Budak)</p>
+                        <p class="text-slate-700">• Teguh & Pemberani dalam Islam</p>
+                    </div>
+                </div>
+
+                <!-- Fast Facts & Summary -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Fact Card 1 -->
+                    <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-slate-100 card-bounce flex items-start gap-4">
+                        <div class="bg-rose-100 text-brandPink text-2xl p-4 rounded-2xl">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">Khalifah Pertama</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Memimpin umat Islam setelah Nabi Muhammad SAW wafat (11 - 13 Hijriah / 632 - 634 Masehi).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Fact Card 2 -->
+                    <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-slate-100 card-bounce flex items-start gap-4">
+                        <div class="bg-emerald-100 text-brandGreen text-2xl p-4 rounded-2xl">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">Sahabat Paling Dermawan</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Menginfakkan seluruh hartanya untuk perjuangan Islam dan memerdekakan Bilal bin Rabah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Fact Card 3 -->
+                    <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-slate-100 card-bounce flex items-start gap-4">
+                        <div class="bg-sky-100 text-brandBlue text-2xl p-4 rounded-2xl">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">Pengumpul Mushaf Al-Qur'an</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Memerintahkan pembukuan ayat Al-Qur'an pertama kali atas usul sahabat Umar bin Khattab.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Fact Card 4 -->
+                    <div class="bg-white p-5 rounded-3xl shadow-lg border-2 border-slate-100 card-bounce flex items-start gap-4">
+                        <div class="bg-purple-100 text-brandPurple text-2xl p-4 rounded-2xl">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-slate-800">Assabiqunal Awwalun</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                Golongan laki-laki dewasa pertama yang masuk agama Islam tanpa ragu-ragu sedikitpun.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Inspirational Quote -->
+                    <div class="md:col-span-2 bg-gradient-to-r from-amber-400 to-brandOrange text-slate-900 p-5 rounded-3xl shadow-lg font-bold flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-quote-left text-3xl opacity-50"></i>
+                            <p class="text-sm md:text-base">
+                                "Orang yang terkuat di antara kalian di sisiku adalah orang yang lemah sehingga aku mengambilkan haknya..."
+                            </p>
+                        </div>
+                        <span class="text-xs bg-white text-slate-900 px-3 py-1 rounded-full whitespace-nowrap shadow ml-2">Pesan Khalifah</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-materi" class="tab-content hidden">
+            <!-- Header Materi -->
+            <div class="text-center mb-8">
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs px-4 py-1.5 rounded-full uppercase">Pusat Pengetahuan</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2">Materi Lengkap Abu Bakar Ash-Shiddiq r.a.</h2>
+                <p class="text-slate-600 text-sm max-w-xl mx-auto">Klik tab di bawah untuk menjelajahi kisah hidup, jasa luar biasa, dan akhlak terpuji beliau!</p>
+            </div>
+
+            <!-- Interactive Sub-tabs -->
+            <div class="flex justify-center gap-2 mb-6 flex-wrap">
+                <button onclick="switchMateriTab('biografi')" id="mtab-biografi" class="materi-tab-btn bg-brandGreen text-slate-900 font-bold px-5 py-2.5 rounded-2xl text-sm shadow transition-all">
+                    <i class="fa-solid fa-id-card"></i> Biografi Singkat
+                </button>
+                <button onclick="switchMateriTab('gelar')" id="mtab-gelar" class="materi-tab-btn bg-white text-slate-700 font-bold px-5 py-2.5 rounded-2xl text-sm shadow hover:bg-slate-50 transition-all">
+                    <i class="fa-solid fa-award"></i> Gelar Ash-Shiddiq
+                </button>
+                <button onclick="switchMateriTab('jasa')" id="mtab-jasa" class="materi-tab-btn bg-white text-slate-700 font-bold px-5 py-2.5 rounded-2xl text-sm shadow hover:bg-slate-50 transition-all">
+                    <i class="fa-solid fa-hands-holding-circle"></i> Jasa & Prestasi
+                </button>
+                <button onclick="switchMateriTab('akhlak')" id="mtab-akhlak" class="materi-tab-btn bg-white text-slate-700 font-bold px-5 py-2.5 rounded-2xl text-sm shadow hover:bg-slate-50 transition-all">
+                    <i class="fa-solid fa-heart-pulse"></i> Sifat & Akhlak
+                </button>
+            </div>
+
+            <!-- Sub Content 1: Biografi -->
+            <div id="mcontent-biografi" class="materi-subcontent bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-emerald-300">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-200 text-center">
+                        <div class="w-24 h-24 bg-brandGreen text-white rounded-full flex items-center justify-center text-4xl mx-auto mb-3 shadow">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-slate-800">Abdullah bin Abi Quhafah</h3>
+                        <p class="text-xs text-slate-500 font-semibold">(Nama Asli Abu Bakar)</p>
+                    </div>
+                    <div class="md:col-span-2 space-y-3 text-slate-700 text-sm md:text-base">
+                        <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-brandGreen">
+                            <strong class="text-slate-900">Kelahiran:</strong> Beliau lahir di Makkah pada tahun 573 Masehi (sekitar 2 tahun setelah kelahiran Nabi Muhammad SAW).
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-brandBlue">
+                            <strong class="text-slate-900">Silsilah & Suku:</strong> Berasal dari suku Quraisy (Bani Taim) yang sangat dihormati karena ketertiban dan kejujurannya.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-brandPurple">
+                            <strong class="text-slate-900">Persahabatan:</strong> Merupakan sahabat terdekat Nabi Muhammad SAW sejak masa muda sebelum Islam datang hingga akhir hayat.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-brandPink">
+                            <strong class="text-slate-900">Masa Kekhalifahan:</strong> Menjadi Khalifah pertama selama kurang lebih 2 tahun 3 bulan (11 H - 13 H / 632 M - 634 M).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub Content 2: Gelar -->
+            <div id="mcontent-gelar" class="materi-subcontent hidden bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-amber-300">
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="text-center bg-amber-50 p-6 rounded-2xl border-2 border-amber-200">
+                        <span class="text-4xl text-amber-500"><i class="fa-solid fa-certificate"></i></span>
+                        <h3 class="text-2xl font-bold text-amber-900 mt-2">Mengapa Digelari "Ash-Shiddiq"?</h3>
+                        <p class="text-sm text-amber-700 mt-1">"Ash-Shiddiq" berarti Orang yang Amat Sangat Benar / Selalu Membenarkan.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                        <h4 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                            <i class="fa-solid fa-moon text-indigo-600"></i> Peristiwa Isra' Mi'raj
+                        </h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Ketika Nabi Muhammad SAW menceritakan peristiwa luar biasa **Isra' Mi'raj** (perjalanan dari Makkah ke Yerusalem lalu naik ke langit ke-7 dalam satu malam), kaum kafir Quraisy mengejek dan tidak percaya.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Namun, Abu Bakar r.a. langsung berkata tanpa ragu sedikit pun: <br/>
+                            <em class="font-semibold text-slate-800">"Jika Nabi Muhammad SAW yang mengatakannya, maka aku percaya sepenuh hati melebihi hal itu!"</em>
+                        </p>
+                        <p class="text-xs bg-amber-100 text-amber-900 p-2.5 rounded-xl font-medium">
+                            Sejak saat itulah Rasulullah SAW memberinya gelar resmi **Ash-Shiddiq**.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub Content 3: Jasa & Prestasi -->
+            <div id="mcontent-jasa" class="materi-subcontent hidden bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-sky-300">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">Jasa-Jasa Agung Khalifah Abu Bakar r.a.</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Jasa 1 -->
+                    <div class="p-5 bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl border border-rose-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-10 h-10 bg-brandPink text-white rounded-xl flex items-center justify-center font-bold text-lg">1</span>
+                            <h4 class="font-bold text-slate-800">Memerangi Nabi Palsu & Murtad</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Menindak tegas orang-orang murtad, pembangkang zakat, dan mengaku nabi palsu (seperti Musailamah Al-Kazzab) melalui Perang Yamamah demi menjaga keutuhan agama Islam.
+                        </p>
+                    </div>
+
+                    <!-- Jasa 2 -->
+                    <div class="p-5 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-10 h-10 bg-brandGreen text-white rounded-xl flex items-center justify-center font-bold text-lg">2</span>
+                            <h4 class="font-bold text-slate-800">Pengumpulan Mushaf Al-Qur'an</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Atas usul Umar bin Khattab karena banyaknya penghafal Al-Qur'an (Huffazh) yang gugur di medan perang, Abu Bakar menugaskan Zaid bin Tsabit untuk mengumpulkan catatan Al-Qur'an.
+                        </p>
+                    </div>
+
+                    <!-- Jasa 3 -->
+                    <div class="p-5 bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl border border-sky-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-10 h-10 bg-brandBlue text-white rounded-xl flex items-center justify-center font-bold text-lg">3</span>
+                            <h4 class="font-bold text-slate-800">Perluasan Wilayah Islam</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Mengirimkan pasukan tentara di bawah pimpinan panglima tangguh seperti Khalid bin Walid untuk menyebarkan syiar Islam ke wilayah Persia dan Syam (Romawi).
+                        </p>
+                    </div>
+
+                    <!-- Jasa 4 -->
+                    <div class="p-5 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl border border-purple-200">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-10 h-10 bg-brandPurple text-white rounded-xl flex items-center justify-center font-bold text-lg">4</span>
+                            <h4 class="font-bold text-slate-800">Pengelolaan Baitul Mal & Gaji Tentara</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Membangun sistem kas negara (Baitul Mal) yang adil dan memberikan gaji teratur untuk para tentara serta memenuhi kebutuhan rakyat miskin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub Content 4: Sifat & Akhlak -->
+            <div id="mcontent-akhlak" class="materi-subcontent hidden bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-purple-300">
+                <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center">4 Sifat Utama yang Wajib Diteladani Siswa Kelas 6</h3>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 text-center">
+                        <div class="text-3xl text-amber-500 mb-2"><i class="fa-solid fa-hand-heart"></i></div>
+                        <h4 class="font-bold text-slate-800">1. Dermawan</h4>
+                        <p class="text-xs text-slate-600 mt-2">Tidak ragu menghabiskan harta benda demi membantu sesama dan membela kebenaran.</p>
+                    </div>
+
+                    <div class="bg-rose-50 p-5 rounded-2xl border border-rose-200 text-center">
+                        <div class="text-3xl text-brandPink mb-2"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="font-bold text-slate-800">2. Setia & Jujur</h4>
+                        <p class="text-xs text-slate-600 mt-2">Selalu jujur dalam kata dan perbuatan, serta setia menemani Nabi dalam keadaan suka maupun duka.</p>
+                    </div>
+
+                    <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200 text-center">
+                        <div class="text-3xl text-brandGreen mb-2"><i class="fa-solid fa-feather-pointed"></i></div>
+                        <h4 class="font-bold text-slate-800">3. Lembut & Rendah Hati</h4>
+                        <p class="text-xs text-slate-600 mt-2">Meskipun seorang pemimpin agung, beliau sangat santun dan tidak pernah sombong.</p>
+                    </div>
+
+                    <div class="bg-indigo-50 p-5 rounded-2xl border border-indigo-200 text-center">
+                        <div class="text-3xl text-brandPurple mb-2"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <h4 class="font-bold text-slate-800">4. Teguh & Tegas</h4>
+                        <p class="text-xs text-slate-600 mt-2">Sangat tegas mempertahankan prinsip kebenaran dan agama Islam dari ancaman perpecahan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-langkah" class="tab-content hidden">
+            <div class="text-center mb-8">
+                <span class="bg-purple-100 text-purple-800 font-bold text-xs px-4 py-1.5 rounded-full uppercase">Peta Pemahaman</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2">Langkah-Langkah Mahir Abu Bakar r.a.</h2>
+                <p class="text-slate-600 text-sm max-w-xl mx-auto">Ikuti 5 langkah visual berwarna-warni ini agar kamu paham tuntas dari awal hingga akhir!</p>
+            </div>
+
+            <!-- Visual Step-by-Step Path -->
+            <div class="relative max-w-4xl mx-auto py-4">
+                <!-- Connecting Vertical Line (Desktop) -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-10 bottom-10 w-2 bg-gradient-to-b from-brandPink via-brandYellow to-brandGreen rounded-full"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 mb-8 md:mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 text-right order-2 md:order-1 mt-3 md:mt-0">
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border-4 border-brandPink card-bounce">
+                            <span class="bg-rose-100 text-brandPink text-xs font-bold px-3 py-1 rounded-full">Langkah 1</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">Masuk Islam (Assabiqunal Awwalun)</h3>
+                            <p class="text-xs text-slate-600 mt-2">
+                                Abu Bakar adalah pria dewasa pertama yang mempercayai ajaran Nabi Muhammad SAW. Beliau mendakwahkan Islam ke sahabat lain seperti Usman bin Affan dan Zubair bin Awwam.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-14 h-14 bg-brandPink text-white rounded-full flex items-center justify-center font-bold text-xl shadow-xl z-20 order-1 md:order-2">
+                        1
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 mb-8 md:mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 order-3 md:order-1 hidden md:block"></div>
+                    <div class="w-14 h-14 bg-brandOrange text-white rounded-full flex items-center justify-center font-bold text-xl shadow-xl z-20 order-1 md:order-2">
+                        2
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-2 md:order-3 mt-3 md:mt-0">
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border-4 border-brandOrange card-bounce">
+                            <span class="bg-orange-100 text-brandOrange text-xs font-bold px-3 py-1 rounded-full">Langkah 2</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">Mendampingi Hijrah ke Madinah</h3>
+                            <p class="text-xs text-slate-600 mt-2">
+                                Saat dikejar-kejar musuh, Abu Bakar setia menemani Nabi bersembunyi di **Gua Tsur**. Beliau melindungi Nabi dari bahaya gigitan hewan berbisa di gua.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 mb-8 md:mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 text-right order-2 md:order-1 mt-3 md:mt-0">
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border-4 border-brandYellow card-bounce">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Langkah 3</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">Terpilih Menjadi Khalifah</h3>
+                            <p class="text-xs text-slate-600 mt-2">
+                                Setelah Rasulullah SAW wafat, umat Islam bermusyawarah di **Tsaqifah Bani Sa'idah** dan secara mufakat memilih Abu Bakar r.a. sebagai pemimpin (Khalifah) pertama.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-14 h-14 bg-brandYellow text-slate-900 rounded-full flex items-center justify-center font-bold text-xl shadow-xl z-20 order-1 md:order-2">
+                        3
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 mb-8 md:mb-12 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 order-3 md:order-1 hidden md:block"></div>
+                    <div class="w-14 h-14 bg-brandGreen text-white rounded-full flex items-center justify-center font-bold text-xl shadow-xl z-20 order-1 md:order-2">
+                        4
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-2 md:order-3 mt-3 md:mt-0">
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border-4 border-brandGreen card-bounce">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Langkah 4</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">Menyelamatkan Al-Qur'an & Negara</h3>
+                            <p class="text-xs text-slate-600 mt-2">
+                                Menumpas para pembangkang zakat/nabi palsu dan mengumpulkan lembaran wahyu Al-Qur'an menjadi satu mushaf berharga yang tersimpan hingga sekarang.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 text-right order-2 md:order-1 mt-3 md:mt-0">
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border-4 border-brandPurple card-bounce">
+                            <span class="bg-purple-100 text-brandPurple text-xs font-bold px-3 py-1 rounded-full">Langkah 5</span>
+                            <h3 class="text-xl font-bold text-slate-800 mt-2">Wafat & Mewariskan Kebaikannya</h3>
+                            <p class="text-xs text-slate-600 mt-2">
+                                Wafat pada usia 63 tahun (sama seperti usia Rasulullah SAW) dan dimakamkan tepat di samping makam Nabi Muhammad SAW di Masjid Nabawi Madinah.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-14 h-14 bg-brandPurple text-white rounded-full flex items-center justify-center font-bold text-xl shadow-xl z-20 order-1 md:order-2">
+                        5
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-3 hidden md:block"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-kuis" class="tab-content hidden">
+            <!-- Quiz Start Box -->
+            <div id="quiz-start-box" class="bg-white rounded-3xl p-8 shadow-xl border-4 border-brandPink text-center max-w-2xl mx-auto">
+                <div class="w-20 h-20 bg-rose-100 text-brandPink rounded-full flex items-center justify-center text-4xl mx-auto mb-4 animate-bounce">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Kuis Ceria 20 Soal PAI</h2>
+                <p class="text-slate-600 text-sm mt-2 mb-6">
+                    Uji kemahiranmu tentang Sahabat Abu Bakar Ash-Shiddiq r.a. Jawab 20 soal berikut dan raih skor tertinggi! 🌟
+                </p>
+
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-800 text-left mb-6 space-y-1">
+                    <p class="font-bold"><i class="fa-solid fa-lightbulb"></i> Petunjuk Kuis:</p>
+                    <p>1. Terdapat 20 soal pilihan ganda (A, B, C, D).</p>
+                    <p>2. Pilih satu jawaban yang menurutmu paling tepat.</p>
+                    <p>3. Kamu akan langsung melihat apakah jawabanmu benar atau salah beserta penjelasannya!</p>
+                </div>
+
+                <button onclick="startQuiz()" class="bg-brandPink hover:bg-rose-600 text-white font-bold text-lg px-8 py-3.5 rounded-2xl shadow-lg transition-all transform hover:scale-105 flex items-center gap-2 mx-auto">
+                    <i class="fa-solid fa-play"></i> Mulai Kuis Sekarang!
+                </button>
+            </div>
+
+            <!-- Active Quiz Box Container -->
+            <div id="quiz-active-box" class="hidden max-w-3xl mx-auto">
+                <!-- Progress Header -->
+                <div class="bg-white p-4 rounded-2xl shadow mb-4 flex justify-between items-center border-2 border-slate-200">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-slate-500">Soal:</span>
+                        <span id="quiz-progress-text" class="text-base font-bold text-brandPurple">1 / 20</span>
+                    </div>
+                    <!-- Progress Bar -->
+                    <div class="w-1/2 bg-slate-200 rounded-full h-3 overflow-hidden">
+                        <div id="quiz-progress-bar" class="bg-brandGreen h-full w-0 transition-all duration-300"></div>
+                    </div>
+                    <div class="flex items-center gap-1 text-xs font-bold text-amber-600">
+                        <i class="fa-solid fa-star text-amber-400"></i> Skor: <span id="quiz-score-live">0</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-4 border-brandBlue relative">
+                    <h3 id="quiz-question" class="text-lg md:text-xl font-bold text-slate-800 mb-6">
+                        <!-- Text Question -->
+                    </h3>
+
+                    <!-- Options Container -->
+                    <div id="quiz-options" class="space-y-3">
+                        <!-- Generated Dynamically -->
+                    </div>
+
+                    <!-- Explanation Box (Shows after answering) -->
+                    <div id="quiz-explanation" class="hidden mt-6 p-4 rounded-2xl bg-slate-100 border-l-4 border-brandBlue text-xs md:text-sm text-slate-700">
+                        <strong id="exp-title" class="block text-slate-900 font-bold mb-1"></strong>
+                        <span id="exp-text"></span>
+                    </div>
+
+                    <!-- Next Button -->
+                    <div class="mt-6 text-right">
+                        <button id="btn-next-question" onclick="nextQuestion()" class="hidden bg-brandGreen hover:bg-emerald-500 text-slate-900 font-bold px-6 py-2.5 rounded-xl shadow transition-all">
+                            Lanjut Soal Berikutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Result Box -->
+            <div id="quiz-result-box" class="hidden bg-white rounded-3xl p-8 shadow-2xl border-4 border-brandYellow text-center max-w-2xl mx-auto">
+                <div class="w-24 h-24 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center text-5xl mx-auto mb-4 border-4 border-brandYellow">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-slate-800">Hasil Kuis Kamu!</h2>
+                <p class="text-slate-600 text-sm mt-1">Selamat telah menyelesaikan 20 Soal PAI Abu Bakar Ash-Shiddiq r.a.</p>
+
+                <!-- Big Score Card -->
+                <div class="my-6 p-6 bg-gradient-to-r from-teal-50 to-emerald-100 rounded-2xl border-2 border-emerald-300">
+                    <span class="text-xs font-bold text-emerald-800 uppercase tracking-widest">Nilai Akhir Kamu</span>
+                    <div id="final-score" class="text-6xl font-extrabold text-brandGreen my-2">100</div>
+                    <p id="final-feedback" class="text-sm font-semibold text-slate-700"></p>
+                </div>
+
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <button onclick="startQuiz()" class="bg-brandBlue hover:bg-sky-600 text-white font-bold px-6 py-3 rounded-2xl shadow transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Coba Kuis Lagi
+                    </button>
+                    <button onclick="switchTab('materi')" class="bg-brandYellow hover:bg-amber-400 text-slate-900 font-bold px-6 py-3 rounded-2xl shadow transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-book"></i> Baca Materi Lagi
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-xs text-slate-600 py-6 border-t border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="font-semibold text-slate-700">Aplikasi Media Pembelajaran PAI Kelas 6 SD - Khulafaur Rasyidin</p>
+            <p class="mt-1 text-slate-500">Membantu Murid Belajar Ceria, Riang, & Mahir Materi Sahabat Abu Bakar Ash-Shiddiq r.a.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 20 Questions Data for Grade 6 PAI
+        const quizData = [
+            {
+                q: "1. Nama asli dari sahabat Abu Bakar Ash-Shiddiq r.a. adalah...",
+                options: [
+                    "A. Abdullah bin Abi Quhafah",
+                    "B. Umar bin Khattab",
+                    "C. Usman bin Affan",
+                    "D. Ali bin Abi Thalib"
+                ],
+                answer: 0,
+                exp: "Nama asli beliau adalah Abdullah bin Abi Quhafah. Nama 'Abu Bakar' merupakan julukan/kunyah."
+            },
+            {
+                q: "2. Abu Bakar mendapat gelar 'Ash-Shiddiq' dari Rasulullah SAW. Apakah arti gelar 'Ash-Shiddiq'?",
+                options: [
+                    "A. Orang yang dermawan",
+                    "B. Orang yang selalu membenarkan/jujur",
+                    "C. Singa padang pasir",
+                    "D. Pemimpin yang adil"
+                ],
+                answer: 1,
+                exp: "Ash-Shiddiq artinya orang yang senantiasa membenarkan perkataan dan ajaran Rasulullah SAW tanpa ragu."
+            },
+            {
+                q: "3. Peristiwa agung yang membuat Abu Bakar langsung membenarkan perkataan Nabi tanpa ragu sedikit pun adalah...",
+                options: [
+                    "A. Perang Badar",
+                    "B. Peristiwa Isra' Mi'raj",
+                    "C. Perjanjian Hudaibiyah",
+                    "D. Fathu Makkah"
+                ],
+                answer: 1,
+                exp: "Ketika orang kafir mendustakan Isra' Mi'raj, Abu Bakar langsung membenarkannya sehingga diberi gelar Ash-Shiddiq."
+            },
+            {
+                q: "4. Dalam urutan Khulafaur Rasyidin, Abu Bakar Ash-Shiddiq r.a. merupakan khalifah yang ke-...",
+                options: [
+                    "A. Pertama (1)",
+                    "B. Kedua (2)",
+                    "C. Ketiga (3)",
+                    "D. Keempat (4)"
+                ],
+                answer: 0,
+                exp: "Abu Bakar adalah Khalifah Pertama pengganti kepemimpinan umat Islam setelah Nabi wafat."
+            },
+            {
+                q: "5. Golongan orang-orang yang pertama kali masuk agama Islam disebut...",
+                options: [
+                    "A. Anshar",
+                    "B. Muhajirin",
+                    "C. Assabiqunal Awwalun",
+                    "D. Khulafaur Rasyidin"
+                ],
+                answer: 2,
+                exp: "Assabiqunal Awwalun adalah julukan bagi mereka yang paling awal memeluk Islam."
+            },
+            {
+                q: "6. Salah satu bukti kedermawanan Abu Bakar r.a. sebelum memeluk Islam hingga masuk Islam adalah...",
+                options: [
+                    "A. Membeli senjata paling mahal",
+                    "B. Membebaskan budak yang disiksa seperti Bilal bin Rabah",
+                    "C. Membangun benteng pertahanan",
+                    "D. Menjual seluruh barang dagangannya ke negeri Syam"
+                ],
+                answer: 1,
+                exp: "Abu Bakar membeli dan memerdekakan sahabat Bilal bin Rabah yang disiksa majikannya."
+            },
+            {
+                q: "7. Gua yang menjadi tempat persembunyian Nabi Muhammad SAW bersama Abu Bakar r.a. saat hijrah ke Madinah adalah...",
+                options: [
+                    "A. Gua Hira",
+                    "B. Gua Tsur",
+                    "C. Gua Uhud",
+                    "D. Gua Uhai"
+                ],
+                answer: 1,
+                exp: "Gua Tsur adalah tempat persembunyian Nabi SAW dan Abu Bakar selama 3 hari dari kejaran kafir Quraisy."
+            },
+            {
+                q: "8. Mengapa Umar bin Khattab mengusulkan kepada Khalifah Abu Bakar untuk mengumpulkan ayat Al-Qur'an?",
+                options: [
+                    "A. Karena kertas Al-Qur'an sudah habis",
+                    "B. Karena banyak penghafal Al-Qur'an (huffazh) gugur di Perang Yamamah",
+                    "C. Karena perintah dari raja Romawi",
+                    "D. Karena anak-anak tidak mau membaca Al-Qur'an"
+                ],
+                answer: 1,
+                exp: "Banyaknya para huffazh (penghafal Al-Qur'an) yang syahid membuat Umar khawatir ayat Al-Qur'an hilang."
+            },
+            {
+                q: "9. Sahabat nabi yang ditunjuk oleh Abu Bakar untuk memimpin panitia pembukuan Al-Qur'an adalah...",
+                options: [
+                    "A. Zaid bin Tsabit r.a.",
+                    "B. Khalid bin Walid r.a.",
+                    "C. Utsman bin Affan r.a.",
+                    "D. Ali bin Abi Thalib r.a."
+                ],
+                answer: 0,
+                exp: "Zaid bin Tsabit r.a. dipilih karena beliau cerdas, teliti, dan penulis wahyu kepercayaan Nabi."
+            },
+            {
+                q: "10. Berapa lama masa kepemimpinan Khalifah Abu Bakar Ash-Shiddiq r.a.?",
+                options: [
+                    "A. 10 Tahun",
+                    "B. 5 Tahun",
+                    "C. Kurang lebih 2 tahun 3 bulan",
+                    "D. 12 Tahun"
+                ],
+                answer: 2,
+                exp: "Masa kepemimpinan Abu Bakar relatif singkat yaitu sekitar 2 tahun 3 bulan (11 H - 13 H)."
+            },
+            {
+                q: "11. Salah satu tindakan tegas Khalifah Abu Bakar terhadap kelompok pembangkang setelah Nabi wafat adalah memerangi...",
+                options: [
+                    "A. Orang yang menolak berpuasa",
+                    "B. Orang yang mengaku sebagai nabi palsu dan enggan membayar zakat",
+                    "C. Penduduk kota Madinah",
+                    "D. Anak-anak kecil"
+                ],
+                answer: 1,
+                exp: "Abu Bakar sangat tegas terhadap orang murtad, enggan berzakat, dan nabi palsu demi keutuhan agama Islam."
+            },
+            {
+                q: "12. Siapakah nama salah satu tokoh terkenal yang mengaku sebagai nabi palsu pada masa Abu Bakar?",
+                options: [
+                    "A. Musailamah Al-Kazzab",
+                    "B. Abu Lahab",
+                    "C. Abu Jahal",
+                    "D. Namrud"
+                ],
+                answer: 0,
+                exp: "Musailamah Al-Kazzab adalah pemimpin nabi palsu yang berhasil ditumpas pada Perang Yamamah."
+            },
+            {
+                q: "13. Tempat bermusyawarah kaum Anshar dan Muhajirin dalam memilih pengganti memimpin umat Islam setelah Nabi wafat adalah...",
+                options: [
+                    "A. Masjid Nabawi",
+                    "B. Tsaqifah Bani Sa'idah",
+                    "C. Rumah Arqam bin Abil Arqam",
+                    "D. Ka'bah"
+                ],
+                answer: 1,
+                exp: "Saqifah / Tsaqifah Bani Sa'idah menjadi tempat bersejarah pemilihan musyawarah Khalifah pertama."
+            },
+            {
+                q: "14. Sikap Abu Bakar ketika mendengar kabar wafatnya Rasulullah SAW adalah...",
+                options: [
+                    "A. Marah dan mengamuk",
+                    "B. Tenang, tabah, dan mengingatkan umat bahwa Nabi adalah utusan Allah yang bisa wafat",
+                    "C. Langsung pulang ke kampung halaman",
+                    "D. Menutup pintu dan tidak mau keluar"
+                ],
+                answer: 1,
+                exp: "Abu Bakar menenangkan Umar dan umat Islam dengan membaca ayat Al-Qur'an bahwa Muhammad adalah rasul."
+            },
+            {
+                q: "15. Lembaga keuangan/kas negara yang dikelola dengan baik pada masa Khalifah Abu Bakar untuk kesejahteraan rakyat dinamakan...",
+                options: [
+                    "A. Bank Islam",
+                    "B. Baitul Mal",
+                    "C. Kas Masjid",
+                    "D. Koperasi Sumpah"
+                ],
+                answer: 1,
+                exp: "Baitul Mal berfungsi mengelola dana zakat, infak, dan ghanimah untuk dibagikan secara adil kepada rakyat."
+            },
+            {
+                q: "16. Panglima perang tangguh dan berani yang dikirim Khalifah Abu Bakar untuk menyebarkan Islam ke wilayah luar Arab adalah...",
+                options: [
+                    "A. Khalid bin Walid r.a.",
+                    "B. Bilal bin Rabah r.a.",
+                    "C. Anas bin Malik r.a.",
+                    "D. Salman Al-Farisi r.a."
+                ],
+                answer: 0,
+                exp: "Khalid bin Walid yang dijuluki Saifullah (Pedang Allah) memimpin pasukan Islam dengan sangat bijaksana."
+            },
+            {
+                q: "17. Abu Bakar r.a. wafat pada usia 63 tahun. Beliau dimakamkan di...",
+                options: [
+                    "A. Kota Makkah di dekat Ka'bah",
+                    "B. Samping makam Nabi Muhammad SAW di Masjid Nabawi Madinah",
+                    "C. Negeri Syam",
+                    "D. Pemakaman Baqi' secara terpisah"
+                ],
+                answer: 1,
+                exp: "Beliau dimakamkan persis di sebelah makam sahabat tercintanya, Nabi Muhammad SAW di Kompleks Masjid Nabawi."
+            },
+            {
+                q: "18. Sifat santun dan lembut hati Abu Bakar terlihat saat beliau...",
+                options: [
+                    "A. Selalu menangis ketika membaca Al-Qur'an dan shalat",
+                    "B. Suka berteriak keras",
+                    "C. Selalu memakai pakaian megah",
+                    "D. Mengacuhkan fakir miskin"
+                ],
+                answer: 0,
+                exp: "Abu Bakar dikenal berhati sangat lembut dan sering meneteskan air mata saat membaca ayat suci Al-Qur'an."
+            },
+            {
+                q: "19. Hikmah dan teladan utama yang bisa kita tiru dari Khalifah Abu Bakar dalam kehidupan sehari-hari di sekolah adalah...",
+                options: [
+                    "A. Berbohong demi kebaikan diri sendiri",
+                    "B. Suka jujur, membantu teman yang kesusahan, dan tidak sombong",
+                    "C. Pelit dan menyimpan makanan sendiri",
+                    "D. Malas belajar agama"
+                ],
+                answer: 1,
+                exp: "Menerapkan sifat jujur, suka bersedekah, dan rendah hati adalah keteladanan nyata dari Abu Bakar r.a."
+            },
+            {
+                q: "20. Hubungan kekeluargaan antara Abu Bakar Ash-Shiddiq r.a. dengan Nabi Muhammad SAW adalah...",
+                options: [
+                    "A. Paman Nabi",
+                    "B. Mertua Nabi (Ayah dari Siti Aisyah r.a.)",
+                    "C. Kakak kandung Nabi",
+                    "D. Keponakan Nabi"
+                ],
+                answer: 1,
+                exp: "Putri Abu Bakar yaitu Siti Aisyah r.a. menikah dengan Nabi Muhammad SAW, sehingga beliau merupakan mertua Nabi."
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Show target tab
+            const target = document.getElementById('sec-' + tabId);
+            if (target) target.classList.remove('hidden');
+
+            // Reset navigation style
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-brandYellow', 'text-slate-900');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            // Highlight active nav button
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700');
+                activeBtn.classList.add('bg-brandYellow', 'text-slate-900');
+            }
+
+            // Play light click effect sound
+            playAudioBeep(600, 0.05);
+        }
+
+        function switchMateriTab(subTabId) {
+            // Hide all subcontent
+            document.querySelectorAll('.materi-subcontent').forEach(el => el.classList.add('hidden'));
+
+            // Show active subcontent
+            const target = document.getElementById('mcontent-' + subTabId);
+            if (target) target.classList.remove('hidden');
+
+            // Reset buttons
+            document.querySelectorAll('.materi-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brandGreen', 'text-slate-900');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            // Active button highlight
+            const activeBtn = document.getElementById('mtab-' + subTabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700');
+                activeBtn.classList.add('bg-brandGreen', 'text-slate-900');
+            }
+
+            playAudioBeep(700, 0.05);
+        }
+
+        function startQuiz() {
+            currentQuestionIdx = 0;
+            score = 0;
+            
+            document.getElementById('quiz-start-box').classList.add('hidden');
+            document.getElementById('quiz-result-box').classList.add('hidden');
+            document.getElementById('quiz-active-box').classList.remove('hidden');
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const data = quizData[currentQuestionIdx];
+            selectedOption = null;
+
+            // UI Elements
+            document.getElementById('quiz-progress-text').innerText = `${currentQuestionIdx + 1} / ${quizData.length}`;
+            document.getElementById('quiz-score-live').innerText = score;
+            
+            // Progress percentage
+            const pct = ((currentQuestionIdx) / quizData.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
+
+            // Question text
+            document.getElementById('quiz-question').innerText = data.q;
+
+            // Reset Explanation and Next Button
+            document.getElementById('quiz-explanation').classList.add('hidden');
+            document.getElementById('btn-next-question').classList.add('hidden');
+
+            // Render Options
+            const optsContainer = document.getElementById('quiz-options');
+            optsContainer.innerHTML = '';
+
+            data.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-2xl border-2 border-slate-200 font-semibold text-sm md:text-base hover:bg-sky-50 transition-all flex justify-between items-center bg-slate-50 text-slate-800`;
+                btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-400 text-lg"></i>`;
+                btn.onclick = () => selectOption(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(idx, element) {
+            if (selectedOption !== null) return; // Prevent double click
+
+            selectedOption = idx;
+            const data = quizData[currentQuestionIdx];
+            const optsContainer = document.getElementById('quiz-options');
+            const allButtons = optsContainer.querySelectorAll('button');
+
+            const isCorrect = (idx === data.answer);
+
+            if (isCorrect) {
+                score += 5; // 20 soal * 5 = 100
+                element.classList.remove('bg-slate-50', 'border-slate-200');
+                element.classList.add('bg-emerald-100', 'border-brandGreen', 'text-emerald-900');
+                element.querySelector('i').className = 'fa-solid fa-circle-check text-brandGreen text-xl';
+                playSuccessAudio();
+            } else {
+                element.classList.remove('bg-slate-50', 'border-slate-200');
+                element.classList.add('bg-rose-100', 'border-brandPink', 'text-rose-900');
+                element.querySelector('i').className = 'fa-solid fa-circle-xmark text-brandPink text-xl';
+                
+                // Highlight correct one
+                const correctBtn = allButtons[data.answer];
+                correctBtn.classList.remove('bg-slate-50', 'border-slate-200');
+                correctBtn.classList.add('bg-emerald-100', 'border-brandGreen', 'text-emerald-900');
+                correctBtn.querySelector('i').className = 'fa-solid fa-circle-check text-brandGreen text-xl';
+                playFailAudio();
+            }
+
+            // Update Live Score
+            document.getElementById('quiz-score-live').innerText = score;
+
+            // Show Explanation Box
+            const expBox = document.getElementById('quiz-explanation');
+            const expTitle = document.getElementById('exp-title');
+            const expText = document.getElementById('exp-text');
+
+            expBox.classList.remove('hidden');
+            if (isCorrect) {
+                expTitle.innerText = "✨ Jawaban Kamu Benar!";
+                expTitle.className = "block font-bold mb-1 text-emerald-800 text-sm md:text-base";
+                expBox.className = "mt-6 p-4 rounded-2xl bg-emerald-50 border-l-4 border-brandGreen text-xs md:text-sm text-slate-700";
+            } else {
+                expTitle.innerText = "❌ Ups, Jawaban Kurang Tepat!";
+                expTitle.className = "block font-bold mb-1 text-rose-800 text-sm md:text-base";
+                expBox.className = "mt-6 p-4 rounded-2xl bg-rose-50 border-l-4 border-brandPink text-xs md:text-sm text-slate-700";
+            }
+            expText.innerText = data.exp;
+
+            // Show Next Button
+            document.getElementById('btn-next-question').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < quizData.length) {
+                renderQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            document.getElementById('quiz-active-box').classList.add('hidden');
+            document.getElementById('quiz-result-box').classList.remove('hidden');
+
+            document.getElementById('final-score').innerText = score;
+
+            const feedback = document.getElementById('final-feedback');
+            if (score === 100) {
+                feedback.innerText = "🌟 Luar Biasa Sempurna! Kamu Sudah Sangat Mahir Tentang Sahabat Abu Bakar Ash-Shiddiq r.a.! 🌟";
+            } else if (score >= 75) {
+                feedback.innerText = "👍 Hebat Sekali! Pemahamanmu Sangat Bagus, Tingkatkan Lagi Ya!";
+            } else if (score >= 50) {
+                feedback.innerText = "😊 Cukup Baik! Mari Coba Baca Materi Sekali Lagi Supaya Makin Mahir!";
+            } else {
+                feedback.innerText = "💪 Jangan Patah Semangat! Mari Pelajari Kembali Materi & Coba Kuis Lagi!";
+            }
+        }
+
+        function playAudioBeep(freq, duration) {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.05, ctx.currentTime);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function playSuccessAudio() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const now = ctx.currentTime;
+                
+                const osc1 = ctx.createOscillator();
+                const gain1 = ctx.createGain();
+                osc1.type = 'triangle';
+                osc1.frequency.setValueAtTime(523.25, now); // C5
+                osc1.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                osc1.frequency.setValueAtTime(783.99, now + 0.2); // G5
+                gain1.gain.setValueAtTime(0.1, now);
+                gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                
+                osc1.connect(gain1);
+                gain1.connect(ctx.destination);
+                osc1.start(now);
+                osc1.stop(now + 0.4);
+            } catch(e) {}
+        }
+
+        function playFailAudio() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const now = ctx.currentTime;
+                
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.linearRampToValueAtTime(150, now + 0.25);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.25);
+            } catch(e) {}
+        }
+    </script>
+</body>
+</html>
